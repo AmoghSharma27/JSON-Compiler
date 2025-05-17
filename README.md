@@ -290,6 +290,7 @@ The parser detects the following semantic errors while constructing the AST for 
 #### Level – C
 
 • **Type 1 (Invalid Decimal Numbers):** To detect if a number has a decimal in front of it without a number in front of the decimal or if it has a decimal point at the end without any digits after the point, the parser uses a simple if statement in the number() parser method and checks, using the startswith() and endswith() functions, if the input number has decimal points without and digits to associate them with. Screenshots:  
+
 **Input File:**  input_error_type1.txt  
 
 **Output:**  
@@ -298,6 +299,7 @@ The parser detects the following semantic errors while constructing the AST for 
 
 
 • **Type 2 (Empty Key):** To check for empty keys, the parser uses an if statement, checking if the input string is of the form STR, “”, indicating that the string is empty. It then writes the error to the output file.  
+
 **Input File:**  input_error_type2.txt  
 
 **Output:**  
@@ -306,6 +308,7 @@ The parser detects the following semantic errors while constructing the AST for 
 
 #### Level – B
 • **Type 3 (Invalid Numbers):** The parser checks for numbers with unnecessary leading 0s or ‘+’ signs using if statements. For leading 0’s, it checks if the input number starts with a 0 and not a ‘0.’, which would indicate it to be a decimal. For ‘+’’s, the if statement checks if the input number contains a ‘+’ sign but not a ‘e+’, as numbers of the form “1.23e+10” are valid.  
+
 **Input:**  input_error_type3.txt  
 
 **Output:**  
@@ -313,6 +316,7 @@ The parser detects the following semantic errors while constructing the AST for 
  
 
 • **Type 4 (Reserved Words as Dictionary Keys):** The parser checks if the input string keys for each pair in a dictionary have reserved words such as true, false or null as values using a simple if statement. It checks if the input string key is of the form ‘STR, true/false/null’  
+
 **Input:**  input_error_type4.txt    
 
 **Output:**  
@@ -320,6 +324,7 @@ The parser detects the following semantic errors while constructing the AST for 
  
 #### Level – A
 • **Type 5 (No Duplicate Keys in Dictionary):** To check for duplicate keys in a dictionary, the parser uses the check_duplicate_keys() function which takes a reference to the dictionary as input along with the parser object itself. It checks for duplicate keys in the dict by iterating over each child of the dictionary, all of whom are Pairs, indexing to the child of the pair containing the key and storing it in a set(). In python, a set is a type of object that cannot have duplicate values. So, after storing all the keys in a dictionary in the set, the function compares the length of the set to the number of keys/pairs in the dictionary, stored in the counter variable that was incremented every time a new key was added to the set. If there are duplicate keys, the set would discard the duplicate values but the counter variable would still count up. So, if the value of the counter variable is more than that of the set’s length, there are duplicate keys.  
+
 **Input:**  input_error_type5.txt   
 
 **Output:**  
@@ -327,6 +332,7 @@ The parser detects the following semantic errors while constructing the AST for 
  
 
 • **Type 6 (Reserved Words as Strings):** The parser checks for reserved words being used as strings anywhere in the input by simply checking if the input string contains reserved keywords like true, false and null in an if statement in the string() parser method. This would ensure that no matter what the string is being used as, a Value or a Key in a key-value pair, the parser would detect if the string is of the form ‘STR, true/false/null’ and detect it as a Type 7 error.  
+
 **Input:**  input_error_type7.txt   
 
 **Output:**  
