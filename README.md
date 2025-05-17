@@ -240,11 +240,11 @@ As a Syntactic Analyzer, my parser detects and handles various syntactic errors 
 
 This level of error handling and recovery ensures that the parser functions correctly, reports any errors and prevents malformed inputs from being processed.
 
-## Parser: 
+## Parser:   
 The parser, similar to the Lexer, takes the tokenized version of the JSON text by the Scanner as input through a text file. It parses each grammar rule for JSON with basically the exact same logic as the Lexer, with one key difference which is that it detects various different semantic errors in the inputs as well. if there are semantic errors, instead of outputting the Abstract Syntax Tree for the input JSON tokens, it prints out the errors and also saves them in a file of the user's choosing. The errors are defined in detail below. The input file can be changed on line 207 and the output file name can be changed on line 216.
 
-### Abstract Syntax Tree Building Process:
-The process for building abstract syntax trees (ASTs) for JSON involves constructing a binary tree-like structure that shows the program structure rather than the parsing process. Each node in the AST is represented by the JSONNode class in the code, whose objects keep track of the following attributes:
+### Abstract Syntax Tree Building Process:  
+The process for building abstract syntax trees (ASTs) for JSON involves constructing a binary tree-like structure that shows the program structure rather than the parsing process. Each node in the AST is represented by the JSONNode class in the code, whose objects keep track of the following attributes:  
 
 **Label:** Represents the data type of the node (e.g., Dict, List, Pair, Value).  
 **Value:** Stores the value associated with the node, such as a string, number, boolean, or null.  
@@ -252,6 +252,7 @@ The process for building abstract syntax trees (ASTs) for JSON involves construc
 **Children:** Contains a list of child nodes for easier traversal.  
 
 The types of JSONNodes in the AST include:  
+
 •	**Dicts:** JSON dictionaries containing key-value pairs where the key is a string and the value can be any JSON object.  
 •	**Lists:** JSON arrays containing values, which can be any JSON object.  
 •	**Pair:** Key-value pairs in a dictionary.  
@@ -262,6 +263,7 @@ When printing the AST, brackets and values are omitted except for the root node,
 Semantic Error Detection:
 
 The following semantic errors are detected by the parser:  
+
 •	**Error Type 1:** Invalid decimal placement in numbers (e.g., .12 or 12.).  
 •	**Error Type 2:** Empty keys in key-value pairs.  
 •	**Error Type 3:** Invalid numbers with leading zeros or non-scientific leading +.  
@@ -285,14 +287,17 @@ The attribute grammar implemented in the parser is as follows:
 **PAIR:** STRING ” : ” VALUE  
 **BOOLEAN:** “true” | “false”   
 
-### Code Explanation
-The code follows a recursive descent parsing algorithm, implementing one function per grammar rule. For instance:
+### Code Explanation  
+
+The code follows a recursive descent parsing algorithm, implementing one function per grammar rule. For instance:  
+
 •	Value: Decides whether the current token corresponds to a Dict, List, String, Number, Bool, or Null, delegating further parsing to respective methods.
 •	Dict: Parses key-value pairs and validates the presence of commas between pairs.
 •	Array: Parses values and ensures commas separate them.
 •	Pair: Ensures correct formatting of key-value pairs and validates key constraints.
 
-### AST Construction:
+### AST Construction:  
+
 •	Each node in the AST is created using the JSONNode class.
 •	The print_tree() method simplifies the parse tree into the AST by omitting redundant symbols (e.g., brackets).
 •	The AST focuses on structural representation while eliminating repeated commas and brackets, providing a cleaner, abstract view.
