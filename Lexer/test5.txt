@@ -1,0 +1,23 @@
+<{>
+<STR, project>
+<:>
+<STR, IPv10 Protocol>
+<,>
+<STR, contributors>
+<:>
+<[>
+<STR, Alice>
+<,>
+<STR, Bob>
+<,>
+<STR, Charlie>
+<]>
+<,>
+<STR, active>
+<:>
+<BOOL, true>
+<,>
+<STR, completionDate>
+<:>
+<NULL>
+<}>

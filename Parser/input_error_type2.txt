@@ -1,0 +1,23 @@
+<{>
+<STR, "">
+<:>
+<STR, "John Doe">
+<,>
+<STR, "">
+<:>
+<INT, 24>
+<,>
+<STR, "isStudent">
+<:>
+<BOOL, false>
+<,>
+<STR, "skills">
+<:>
+<[>
+<STR, "JavaScript">
+<,>
+<STR, "Python">
+<,>
+<STR, "C++">
+<]>
+<}>

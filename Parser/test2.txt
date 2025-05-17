@@ -1,0 +1,53 @@
+<{>
+<STR, "person">
+<:>
+<{>
+<STR, "firstName">
+<:>
+<STR, "Alice">
+<,>
+<STR, "lastName">
+<:>
+<STR, "Johnson">
+<,>
+<STR, "address">
+<:>
+<{>
+<STR, "street">
+<:>
+<STR, "123 Main St">
+<,>
+<STR, "city">
+<:>
+<STR, "Anytown">
+<,>
+<STR, "zipcode">
+<:>
+<STR, "12345">
+<}>
+<,>
+<STR, "phoneNumbers">
+<:>
+<[>
+<{>
+<STR, "type">
+<:>
+<STR, "home">
+<,>
+<STR, "number">
+<:>
+<STR, "902-567-1234">
+<}>
+<,>
+<{>
+<STR, "type">
+<:>
+<STR, "work">
+<,>
+<STR, "number">
+<:>
+<STR, "902-123-5678">
+<}>
+<]>
+<}>
+<}>

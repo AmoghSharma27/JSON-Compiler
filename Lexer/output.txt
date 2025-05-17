@@ -1,0 +1,34 @@
+VALUE
+  DICT
+    {
+      PAIR
+        STRING: name
+        :
+        VALUE
+          STRING: John Doe
+      PAIR
+        STRING: age
+        :
+        VALUE
+          NUMBER: 24
+      PAIR
+        STRING: isStudent
+        :
+        VALUE
+          BOOL: false
+      PAIR
+        STRING: skills
+        :
+        VALUE
+          LIST
+            [
+              VALUE
+                STRING: JavaScript
+              ,
+              VALUE
+                STRING: Python
+              ,
+              VALUE
+                STRING: C++
+            ]
+    }

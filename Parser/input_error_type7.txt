@@ -1,0 +1,67 @@
+<{>
+<STR, true>
+<:>
+<STR, true>
+<,>
+<STR, foundedYear>
+<:>
+<INT, 2000>
+<,>
+<STR, employees>
+<:>
+<[>
+<{>
+<STR, name>
+<:>
+<STR, Bob Smith>
+<,>
+<STR, position>
+<:>
+<STR, CEO>
+<,>
+<STR, salary>
+<:>
+<INT, 150000.48>
+<,>
+<STR, fullTime>
+<:>
+<BOOL, true>
+<}>
+<,>
+<{>
+<STR, name>
+<:>
+<STR, Tom Brown>
+<,>
+<STR, position>
+<:>
+<STR, Software Developer>
+<,>
+<STR, salary>
+<:>
+<INT, 80000>
+<,>
+<STR, fullTime>
+<:>
+<BOOL, true>
+<}>
+<,>
+<{>
+<STR, name>
+<:>
+<STR, Lucy Green>
+<,>
+<STR, position>
+<:>
+<STR, Developer Intern>
+<,>
+<STR, salary>
+<:>
+<INT, 40000>
+<,>
+<STR, fullTime>
+<:>
+<BOOL, true>
+<}>
+<]>
+<}>

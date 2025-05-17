@@ -1,0 +1,43 @@
+<[>
+<{>
+<STR, "id">
+<:>
+<INT, 1>
+<,>
+<STR, "title">
+<:>
+<STR, "Intro to Computer Programming">
+<,>
+<STR, "isAvailable">
+<:>
+<BOOL, true>
+<}>
+<,>
+<{>
+<STR, "id">
+<:>
+<INT, 2>
+<,>
+<STR, "title">
+<:>
+<STR, "Data Structures and Algorithms">
+<,>
+<STR, "isAvailable">
+<:>
+<BOOL, false>
+<}>
+<,>
+<{>
+<STR, "id">
+<:>
+<INT, 3>
+<,>
+<STR, "title">
+<:>
+<STR, "Theory of Computer Science">
+<,>
+<STR, "isAvailable">
+<:>
+<BOOL, true>
+<}>
+<]>

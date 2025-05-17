@@ -1,0 +1,12 @@
+{
+"name": "John",
+  	"age": 24,
+  	"isStudent": false,
+  	"courses": ["Math", "Statistics", "Computer Science"],
+ 	 "address": {
+   		 "street": "123 Some St",
+    		"city": "ExampleTown",
+    		"zip": "12345"
+  	},
+  	"graduated": null
+}

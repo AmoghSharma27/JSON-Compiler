@@ -1,0 +1,29 @@
+<[>
+<{>
+<STR, Key>
+<:>
+<INT, 2.1223e-10>
+<,>
+<STR, Key2>
+<:>
+<{>
+<STR, Test 2>
+<:>
+<{>
+<STR, Necty>
+<:>
+<true>
+<}>
+<}>
+<}>
+<,>
+<{>
+<STR, Test>
+<:>
+<STR, alas>
+<,>
+<STR, Test2>
+<:>
+<false>
+<}>
+<]>
