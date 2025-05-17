@@ -4,8 +4,6 @@ Developed a JSON compiler Entirely in Python during my assignment for the CSCI 2
 **Author:** Amogh Sharma
 **Implementation Completed On:** December 16, 2024
 
-[[_TOC_]]
-
 ## Language Description
 The language that I am working with on this project is JSON (JavaScript Object Notation) This language is light and primarily used for the storage and propagation of data through API’s and web applications. 
 
@@ -55,40 +53,40 @@ Literals:
 
 **Complete Examples of JSON Structure:**
 
-Object:
+Object:  
 
-{
-"name": "John",
-  	"age": 24,
-  	"isStudent": false,
-  	"courses": ["Math", "Statistics", "Computer Science"],
- 	 "address": {
-   		 "street": "123 Some St",
-    		"city": "ExampleTown",
-    		"zip": "12345"
-  	},
-  	"graduated": null
-}
+{  
+	"name": "John",  
+  	"age": 24,  
+  	"isStudent": false,  
+  	"courses": ["Math", "Statistics", "Computer Science"],  
+ 	 "address": {  
+   		 "street": "123 Some St",  
+    		"city": "ExampleTown",  
+    		"zip": "12345"  
+  	},  
+  	"graduated": null  
+}  
 
-Array:
+Array:  
 
-[
-		{	
-				"id": 1,
-        		"title": "Intro to Computer Programming",
-        		"isAvailable": true
-    	},
-    	{
-        		"id": 2,
-        		"title": "Data Structures and Algorithms",
-        		"isAvailable": false
-    	},
-    	{
-        		"id": 3,
-        		"title": "Theory of Computer Science",
-        		"isAvailable": true
-    	}
-]
+[  
+		{	  
+				"id": 1,  
+        		"title": "Intro to Computer Programming",  
+        		"isAvailable": true  
+    	},  
+    	{  
+        		"id": 2,  
+        		"title": "Data Structures and Algorithms",  
+        		"isAvailable": false  
+    	},  
+    	{  
+        		"id": 3,  
+        		"title": "Theory of Computer Science",  
+        		"isAvailable": true  
+    	}  
+]  
 
 ## Scanner
 The Scanner tokenizes the input JSON text to text readable by the lexer. It outputs the tokens to the console but this can be changed for it to output to a file or directly to the Lexer. The Scanner folder contains 3 input tests containing JSON text that can be input into the code through the open() function at line 239.
@@ -136,7 +134,7 @@ To ensure correctness, the method verifies that the value stored in result match
 #### DFA Design
 
 ![alt text](images/dfa.png)
-
+  
 •	This DFA reflects how I have implemented my scanner in my code (in the LexerDFA) class. Here, the start state, which is also an accepting state, represents the get_next_token() method. 
 •	States q1 and q2 are the states used for recognizing strings by the DFA, with q2 an accepting state after the closing double quotes is read. Q2 loops back to q0 as tokens are read again from the start after one type is processed. These states represent the recognize_string() method in my code.
 •	States q3 and q4 are for recognizing Boolean values as shown. The DFA transition from q0 to q3 on reading t or f and then loops over all characters read. On reading e during this loop, it transitions to accepting state q4. Q4 also loops back to q0. These states are the representation of the recognize_boolean() method in my code.
@@ -179,41 +177,41 @@ My code implements a recursive descent parser, by breaking down the parsing for 
 ### Error Handling and Recovery
 As a Syntactic Analyzer, my parser detects and handles various syntactic errors that can be made in the input given to it. These errors are:
 
-1. If the JSON file does not begin with a ‘{‘ or a ‘[‘, the value() method in Parser raises an Exception, stopping the program’s execution and indicating the error to the user. Screenshots of the Error handling:
+1. If the JSON file does not begin with a ‘{‘ or a ‘[‘, the value() method in Parser raises an Exception, stopping the program’s execution and indicating the error to the user. Screenshots of the Error handling:  
 
-Input: ![alt text](images/input1.png)
+Input:  ![alt text](images/input1.png)
  
-Output: ![alt text](images/output1.png)
+Output:  ![alt text](images/output1.png)
 
-2.	In a dict, if the pairs are not separated by commas, the dict() function stops execution by raising an Exception and the error is indicated to the user. Screenshots are as follows:
+2.	In a dict, if the pairs are not separated by commas, the dict() function stops execution by raising an Exception and the error is indicated to the user. Screenshots are as follows:  
 
-Input: ![alt text](images/input2.png)
+Input:  ![alt text](images/input2.png)
  
-Output: ![alt text](images/output2.png)
+Output:  ![alt text](images/output2.png)
 
-3.	In a dict, if the closing braces are not curly braces ‘}’, then, the dict() function indicates it to the user by printing and recovers by breaking the loop, creating a JSONNode for ‘}’ instead of the incorrect braces and then continues the execution. Screenshots are as given:
+3.	In a dict, if the closing braces are not curly braces ‘}’, then, the dict() function indicates it to the user by printing and recovers by breaking the loop, creating a JSONNode for ‘}’ instead of the incorrect braces and then continues the execution. Screenshots are as given:  
 
-Input: ![alt text](images/input3.png)
+Input:  ![alt text](images/input3.png)
  
-Output: ![alt text](images/output3.png)
+Output:  ![alt text](images/output3.png)
  
-4.	Similarly for list, if there is a comma missing between values, the list() function throws an exception and the program is stopped. Screenshots:
+4.	Similarly for list, if there is a comma missing between values, the list() function throws an exception and the program is stopped. Screenshots:  
 
-Input: ![alt text](images/input4.png)
+Input:  ![alt text](images/input4.png)
  
-Output: ![alt text](images/output4.png)
+Output:  ![alt text](images/output4.png)
 
-5.	Again, if the closing braces for list are not box brackets ‘]’, then, instead of stopping the program, it recovers from the error by breaking out of the loop as it should, informing the user of the error and continuing execution. Screenshots:
+5.	Again, if the closing braces for list are not box brackets ‘]’, then, instead of stopping the program, it recovers from the error by breaking out of the loop as it should, informing the user of the error and continuing execution. Screenshots:  
 
-Input: ![alt text](images/input5.png)
+Input:  ![alt text](images/input5.png)
  
-Output: ![alt text](images/output5.png)
+Output:  ![alt text](images/output5.png)
 
-6.	The pair() method checks for colon being present after every string key. If it detects a colon not being present after a key, it raises an exception and stops the program’s execution. Screenshots:
+6.	The pair() method checks for colon being present after every string key. If it detects a colon not being present after a key, it raises an exception and stops the program’s execution. Screenshots:  
 
-Input: ![alt text](images/input6.png)
+Input:  ![alt text](images/input6.png)
  
-Output: ![alt text](images/output6.png)
+Output:  ![alt text](images/output6.png)
 
 This level of error handling and recovery ensures that the parser functions correctly, reports any errors and prevents malformed inputs from being processed.
 
@@ -279,34 +277,34 @@ The parser detects the following semantic errors while constructing the AST for 
 
 #### Level – C
 
-• **Type 1 (Invalid Decimal Numbers):** To detect if a number has a decimal in front of it without a number in front of the decimal or if it has a decimal point at the end without any digits after the point, the parser uses a simple if statement in the number() parser method and checks, using the startswith() and endswith() functions, if the input number has decimal points without and digits to associate them with. Screenshots:
-Input File: input_error_type1.txt
-Output: ![alt text](images/type1error.png)
+• **Type 1 (Invalid Decimal Numbers):** To detect if a number has a decimal in front of it without a number in front of the decimal or if it has a decimal point at the end without any digits after the point, the parser uses a simple if statement in the number() parser method and checks, using the startswith() and endswith() functions, if the input number has decimal points without and digits to associate them with. Screenshots:  
+Input File:  input_error_type1.txt
+Output:  ![alt text](images/type1error.png)
  
 
 
-• **Type 2 (Empty Key):** To check for empty keys, the parser uses an if statement, checking if the input string is of the form STR, “”, indicating that the string is empty. It then writes the error to the output file.
-Input File: input_error_type2.txt
-Output: ![alt text](images/type2error.png)
+• **Type 2 (Empty Key):** To check for empty keys, the parser uses an if statement, checking if the input string is of the form STR, “”, indicating that the string is empty. It then writes the error to the output file.  
+Input File:  input_error_type2.txt
+Output:  ![alt text](images/type2error.png)
  
 
 #### Level – B
-• **Type 3 (Invalid Numbers):** The parser checks for numbers with unnecessary leading 0s or ‘+’ signs using if statements. For leading 0’s, it checks if the input number starts with a 0 and not a ‘0.’, which would indicate it to be a decimal. For ‘+’’s, the if statement checks if the input number contains a ‘+’ sign but not a ‘e+’, as numbers of the form “1.23e+10” are valid.
-Input: input_error_type3.txt
-Output: ![alt text](images/type3error.png)
+• **Type 3 (Invalid Numbers):** The parser checks for numbers with unnecessary leading 0s or ‘+’ signs using if statements. For leading 0’s, it checks if the input number starts with a 0 and not a ‘0.’, which would indicate it to be a decimal. For ‘+’’s, the if statement checks if the input number contains a ‘+’ sign but not a ‘e+’, as numbers of the form “1.23e+10” are valid.  
+Input:  input_error_type3.txt
+Output:  ![alt text](images/type3error.png)
  
 
-• **Type 4 (Reserved Words as Dictionary Keys):** The parser checks if the input string keys for each pair in a dictionary have reserved words such as true, false or null as values using a simple if statement. It checks if the input string key is of the form ‘STR, true/false/null’
-Input: input_error_type4.txt
-Output: ![alt text](images/type4error.png)
+• **Type 4 (Reserved Words as Dictionary Keys):** The parser checks if the input string keys for each pair in a dictionary have reserved words such as true, false or null as values using a simple if statement. It checks if the input string key is of the form ‘STR, true/false/null’  
+Input:  input_error_type4.txt  
+Output:  ![alt text](images/type4error.png)
  
 #### Level – A
-• **Type 5 (No Duplicate Keys in Dictionary):** To check for duplicate keys in a dictionary, the parser uses the check_duplicate_keys() function which takes a reference to the dictionary as input along with the parser object itself. It checks for duplicate keys in the dict by iterating over each child of the dictionary, all of whom are Pairs, indexing to the child of the pair containing the key and storing it in a set(). In python, a set is a type of object that cannot have duplicate values. So, after storing all the keys in a dictionary in the set, the function compares the length of the set to the number of keys/pairs in the dictionary, stored in the counter variable that was incremented every time a new key was added to the set. If there are duplicate keys, the set would discard the duplicate values but the counter variable would still count up. So, if the value of the counter variable is more than that of the set’s length, there are duplicate keys.
-Input: input_error_type5.txt
-Output: ![alt text](images/type5error.png)
+• **Type 5 (No Duplicate Keys in Dictionary):** To check for duplicate keys in a dictionary, the parser uses the check_duplicate_keys() function which takes a reference to the dictionary as input along with the parser object itself. It checks for duplicate keys in the dict by iterating over each child of the dictionary, all of whom are Pairs, indexing to the child of the pair containing the key and storing it in a set(). In python, a set is a type of object that cannot have duplicate values. So, after storing all the keys in a dictionary in the set, the function compares the length of the set to the number of keys/pairs in the dictionary, stored in the counter variable that was incremented every time a new key was added to the set. If there are duplicate keys, the set would discard the duplicate values but the counter variable would still count up. So, if the value of the counter variable is more than that of the set’s length, there are duplicate keys.  
+Input:  input_error_type5.txt  
+Output:  ![alt text](images/type5error.png)  
  
 
-• **Type 6 (Reserved Words as Strings):** The parser checks for reserved words being used as strings anywhere in the input by simply checking if the input string contains reserved keywords like true, false and null in an if statement in the string() parser method. This would ensure that no matter what the string is being used as, a Value or a Key in a key-value pair, the parser would detect if the string is of the form ‘STR, true/false/null’ and detect it as a Type 7 error.
-Input: input_error_type7.txt
-Output: ![alt text](images/type6error.png)
+• **Type 6 (Reserved Words as Strings):** The parser checks for reserved words being used as strings anywhere in the input by simply checking if the input string contains reserved keywords like true, false and null in an if statement in the string() parser method. This would ensure that no matter what the string is being used as, a Value or a Key in a key-value pair, the parser would detect if the string is of the form ‘STR, true/false/null’ and detect it as a Type 7 error.  
+Input:  input_error_type7.txt  
+Output:  ![alt text](images/type6error.png)  
  
